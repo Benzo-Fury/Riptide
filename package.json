@@ -1,0 +1,40 @@
+{
+  "name": "riptide",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A desktop BitTorrent client on the Undercurrent engine, built with Electrobun.",
+  "scripts": {
+    "engine": "bun scripts/build-engine.ts",
+    "engine:debug": "bun scripts/build-engine.ts --debug",
+    "fonts": "bun scripts/fetch-fonts.ts",
+    "view": "bun run fonts && vite build",
+    "prepare:devkit": "electrobun prepare",
+    "dev": "bun run engine && bun run view && electrobun dev",
+    "dev:watch": "bun run engine && bun run view && electrobun dev --watch",
+    "dev:hmr": "bun run engine && bun run view && (vite --port 5183 --strictPort & VITE=$!; trap 'kill $VITE' EXIT; electrobun dev)",
+    "dev:web": "bun scripts/dev-web.ts",
+    "build": "bun run engine && bun run view && electrobun build --env=stable",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "bun run test:engine && bun run test:bun && bun run test:ui",
+    "test:engine": "cd engine && cargo test",
+    "test:bun": "bun test tests/bun --timeout 60000",
+    "test:ui": "bun test tests/ui --timeout 120000"
+  },
+  "dependencies": {
+    "lucide-react": "^1.57.0",
+    "motion": "^14.3.0",
+    "react": "19",
+    "react-dom": "19"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.3",
+    "@types/react": "19",
+    "@types/react-dom": "19",
+    "@vitejs/plugin-react": "^6.1.2",
+    "electrobun": "2.0.2",
+    "playwright-core": "^1.64.1",
+    "typescript": "5.9",
+    "vite": "8.3.4"
+  }
+}

@@ -1,0 +1,68 @@
+/* Design tokens: every colour, size, space and timing in the UI comes from here (docs/DESIGN.md). */
+
+@font-face { font-family: "Clash Grotesk"; src: url("../assets/fonts/ClashGrotesk-400.woff2") format("woff2"); font-weight: 400; font-display: block; }
+@font-face { font-family: "Clash Grotesk"; src: url("../assets/fonts/ClashGrotesk-500.woff2") format("woff2"); font-weight: 500; font-display: block; }
+@font-face { font-family: "Clash Grotesk"; src: url("../assets/fonts/ClashGrotesk-600.woff2") format("woff2"); font-weight: 600; font-display: block; }
+@font-face { font-family: "Satoshi"; src: url("../assets/fonts/Satoshi-400.woff2") format("woff2"); font-weight: 400; font-display: block; }
+@font-face { font-family: "Satoshi"; src: url("../assets/fonts/Satoshi-500.woff2") format("woff2"); font-weight: 500; font-display: block; }
+@font-face { font-family: "Satoshi"; src: url("../assets/fonts/Satoshi-700.woff2") format("woff2"); font-weight: 700; font-display: block; }
+
+:root {
+	color-scheme: dark;
+
+	/* Colour: Lunar and bronze */
+	--bg: #111111;
+	--surface: #1c1c1c;
+	--surface-2: #262626;
+	--surface-3: #303030;
+	--ink: #f2f2f2;
+	--muted: #8f8f8f;
+	--accent: #a08672;
+	--accent-strong: #b39a86;
+	--accent-ink: #111111;
+	--sea: #6f9a93;
+	--danger: #d26a5c;
+	--danger-ink: #111111;
+	--scrim: rgb(0 0 0 / 0.55);
+
+	/* Type */
+	--font-display: "Clash Grotesk", "Satoshi", system-ui, sans-serif;
+	--font-text: "Satoshi", system-ui, -apple-system, sans-serif;
+	--step-small: 13px;
+	--step-body: 14px;
+	--step-lead: 18px;
+	--step-head: 30px;
+	--step-figure: 56px;
+
+	/* Space: a 4px grid */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 24px;
+	--space-6: 32px;
+	--space-7: 48px;
+	--space-8: 64px;
+
+	/* Shape: one radius for the whole app */
+	--radius: 6px;
+	--control-h: 32px;
+	--bar-h: 52px;
+	--status-h: 28px;
+	--sidebar-w: 240px;
+	--row-h: 56px;
+	--progress-h: 4px;
+
+	/* Float: only things that truly float (dialogs, menus, toasts) have a shadow */
+	--shadow-float: 0 24px 64px rgb(0 0 0 / 0.55), 0 2px 8px rgb(0 0 0 / 0.4);
+
+	/* Motion */
+	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+	--ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+	--ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+	--t-press: 140ms;
+	--t-hover: 180ms;
+	--t-ui: 240ms;
+	--t-shutter: 450ms;
+	--t-reveal: 800ms;
+}

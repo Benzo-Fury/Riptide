@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- macOS icon grid: an 824px rounded square inset 100px -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="#111111"/>
+  <g fill="none" stroke-linecap="round">
+    <!-- Feeder currents converge through the neck, then fan out into the head -->
+    <g stroke="#a08672" stroke-width="22">
+      <path d="M232 840 C 330 760, 470 690, 498 560 C 520 450, 360 360, 300 250"/>
+      <path d="M792 840 C 694 760, 554 690, 526 560 C 504 450, 664 360, 724 250"/>
+      <path d="M330 840 C 410 770, 490 690, 506 560 C 520 440, 440 330, 420 220"/>
+      <path d="M694 840 C 614 770, 534 690, 518 560 C 504 440, 584 330, 604 220"/>
+    </g>
+    <g stroke="#f2f2f2" stroke-width="22">
+      <path d="M512 860 L 512 560 C 512 430, 512 330, 512 200"/>
+    </g>
+    <g stroke="#6f9a93" stroke-width="22" opacity="0.9">
+      <path d="M180 600 C 260 560, 330 520, 400 470"/>
+      <path d="M844 600 C 764 560, 694 520, 624 470"/>
+    </g>
+  </g>
+</svg>

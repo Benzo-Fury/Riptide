@@ -1,0 +1,17 @@
+starting 4 seeders…
+download riptide run 1: 13743 Mbit/s, 4.7 s CPU
+download qbittorrent run 1: 7491 Mbit/s, 5.9 s CPU
+download qbittorrent run 2: 7626 Mbit/s, 6.4 s CPU
+download riptide run 2: 4882 Mbit/s, 5.4 s CPU
+download riptide run 3: 7608 Mbit/s, 3.8 s CPU
+download qbittorrent run 3: 3858 Mbit/s, 7.7 s CPU
+seed riptide run 1: 88118 Mbit/s, 72.2 s CPU
+seed qbittorrent run 1: 54198 Mbit/s, 44.1 s CPU
+seed qbittorrent run 2: 54280 Mbit/s, 44.2 s CPU
+seed riptide run 2: 87389 Mbit/s, 72.0 s CPU
+seed riptide run 3: 85937 Mbit/s, 71.1 s CPU
+seed qbittorrent run 3: 53518 Mbit/s, 43.6 s CPU
+| App | Download (Gbit/s) | CPU s/GB down | Seeding (Gbit/s) | CPU s/GB up |
+|---|---|---|---|---|
+| riptide | 4.9–13.7 | 1.07 | 85.9–88.1 | 0.33 |
+| qbittorrent | 3.9–7.6 | 1.55 | 53.5–54.3 | 0.34 |

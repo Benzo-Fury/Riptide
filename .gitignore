@@ -1,0 +1,35 @@
+node_modules/
+dist/
+build/
+artifacts/
+engine/target/
+vendor/bin/
+.hutch
+.taste-skill
+.claude
+test-results/
+*.log
+.DS_Store
+
+# Cottontail scratch/runtime state
+.cottontail-tmp/
+.hutch/devkit.lock
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
+
+# Local Claude Code settings
+.claude/settings.local.json
+
+# Rust
+engine/target/
+*.rs.bk
+
+# Coverage / caches
+coverage/
+.vite/
+*.tsbuildinfo
+# Fonts from Fontshare: their license doesn't allow redistribution, so scripts/fetch-fonts.ts downloads them
+src/mainview/assets/fonts/*.woff2

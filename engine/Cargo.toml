@@ -1,0 +1,26 @@
+[package]
+name = "undercurrentd"
+version = "0.1.0"
+edition = "2024"
+description = "Riptide's engine process: the Undercurrent library behind a JSON-lines protocol on stdin/stdout."
+license = "MIT"
+publish = false
+
+[dependencies]
+# The engine itself, built from the sibling Undercurrent checkout
+undercurrent = { path = "../../Undercurrent" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = "0.22"
+# getifaddrs for the VPN lock, localtime_r for the slow tide schedule
+libc = "0.2"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true

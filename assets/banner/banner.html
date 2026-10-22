@@ -1,0 +1,65 @@
+<!doctype html>
+<!-- The README banner. Render with render.sh: 1280×400 at 2× -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Riptide banner</title>
+<style>
+	@font-face { font-family: "Clash Grotesk"; src: url("../../src/mainview/assets/fonts/ClashGrotesk-500.woff2") format("woff2"); font-weight: 500; }
+	:root { --field: #a08672; --ink: #111111; --light: #f2f2f2; }
+	html, body { margin: 0; background: var(--field); }
+	.banner { position: relative; width: 1280px; height: 400px; overflow: hidden; background: var(--field); }
+	canvas { position: absolute; inset: 0; width: 1280px; height: 400px; }
+	.mark { position: absolute; left: 72px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 28px; }
+	.mark img { width: 176px; height: 176px; margin: -22px; } /* the icon's own 100/1024 inset */
+	.mark span { font: 500 132px/0.95 "Clash Grotesk", sans-serif; letter-spacing: -0.03em; color: var(--ink); padding-left: 22px; }
+</style>
+</head>
+<body>
+<div class="banner">
+	<canvas id="swarm" width="2560" height="800"></canvas>
+	<div class="mark"><img src="logo.svg" alt=""><span>Riptide</span></div>
+</div>
+<script>
+// The app's swarm view, still: you at the centre, peers on orbits set by their round trip, packets streaming in and out
+const ctx = document.getElementById("swarm").getContext("2d");
+ctx.scale(2, 2);
+let seed = 7;
+const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+const cx = 1060, cy = 200, inner = 46, outer = 370;
+const radius = (o) => inner + (outer - inner) * o;
+const rgba = (hex, a) => hex + Math.round(a * 255).toString(16).padStart(2, "0");
+
+// Orbits at 1 ms, 10 ms, 100 ms and 1 s
+ctx.lineWidth = 1.5;
+for (const o of [0, 1 / 3, 2 / 3, 1]) {
+	ctx.strokeStyle = rgba("#111111", 0.16);
+	ctx.beginPath(); ctx.arc(cx, cy, radius(o), 0, Math.PI * 2); ctx.stroke();
+}
+
+// Peers, with a stream of packets between each busy one and you
+const peers = Array.from({ length: 34 }, () => ({ a: rand() * Math.PI * 2, o: Math.min(1.02, 0.08 + rand() ** 0.8 * 0.95), seed: rand() < 0.4, busy: rand() < 0.55, inbound: rand() < 0.7 }));
+for (const p of peers) {
+	const x = cx + Math.cos(p.a) * radius(p.o), y = cy + Math.sin(p.a) * radius(p.o);
+	if (p.busy) {
+		ctx.strokeStyle = rgba("#111111", 0.12); ctx.lineWidth = 1;
+		ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(cx, cy); ctx.stroke();
+		const tone = p.inbound ? "#f2f2f2" : "#111111";
+		for (let i = 0; i < 9; i++) {
+			const t = (i + rand() * 0.6) / 9, lane = (rand() - 0.5) * 6;
+			const px = x + (cx - x) * t - Math.sin(p.a) * lane, py = y + (cy - y) * t + Math.cos(p.a) * lane;
+			ctx.fillStyle = rgba(tone, 0.55 + rand() * 0.4);
+			ctx.beginPath(); ctx.arc(px, py, 2.1, 0, Math.PI * 2); ctx.fill();
+		}
+	}
+	ctx.lineWidth = 2;
+	ctx.beginPath(); ctx.arc(x, y, p.seed ? 6 : 5, 0, Math.PI * 2);
+	if (p.seed) { ctx.fillStyle = "#111111"; ctx.fill(); } else { ctx.fillStyle = "#a08672"; ctx.fill(); ctx.strokeStyle = "#111111"; ctx.stroke(); }
+}
+
+// You
+ctx.fillStyle = rgba("#111111", 0.14); ctx.beginPath(); ctx.arc(cx, cy, 26, 0, Math.PI * 2); ctx.fill();
+ctx.fillStyle = "#111111"; ctx.beginPath(); ctx.arc(cx, cy, 13, 0, Math.PI * 2); ctx.fill();
+</script>
+</body>
+</html>
