@@ -105,3 +105,7 @@ bun run typecheck
 - [Features](docs/FEATURES.md): what's been built, what hasn't yet, and why.
 - [Design](docs/DESIGN.md): the visual and motion design.
 - [Undercurrent](https://github.com/Benzo-Fury/Undercurrent): the engine, how it works, and its benchmarks.
+
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE). The fonts are covered by their own license from Fontshare.

@@ -3,7 +3,7 @@ name = "undercurrentd"
 version = "0.1.0"
 edition = "2024"
 description = "Riptide's engine process: the Undercurrent library behind a JSON-lines protocol on stdin/stdout."
-license = "MIT"
+license = "Apache-2.0"
 publish = false
 
 [dependencies]
