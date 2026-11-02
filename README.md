@@ -13,6 +13,14 @@ Riptide is a desktop BitTorrent client and an alternative to apps like qBittorre
 - **Private.** It can lock all traffic to your VPN, and it stops if the VPN drops.
 - **Simple.** It has a clean, modern interface that covers everything you'd expect from a torrent client.
 
+## Screenshots
+
+<p align="center">
+  <img src="assets/screenshots/library.png" alt="Riptide's torrent list with several downloads in progress" width="32%">
+  <img src="assets/screenshots/files.png" alt="A torrent's file list, with checkboxes to choose what to download" width="32%">
+  <img src="assets/screenshots/swarm.png" alt="The swarm view, showing peers by round-trip time" width="32%">
+</p>
+
 ## Speed
 
 Riptide is quick, but for most people it won't make downloads finish sooner. Here's why.
